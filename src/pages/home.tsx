@@ -1,18 +1,25 @@
 import { CoffeeIcon, PackageIcon, ShoppingCartIcon, TimerIcon } from '@phosphor-icons/react'
 
 import { Card } from '../components/card'
-import { useEffect, useState } from 'react'
-import type { Coffee, Root } from '../@types/coffee'
+import { useEffect } from 'react'
+import type { Root } from '../@types/coffee'
+import { useCoffeeStore } from '../store/coffee'
+import { useShallow } from 'zustand/shallow'
 
 export function Home() {
-    const [coffees, setCoffees] = useState<Coffee[]>([])
+    const { coffees, setCoffees } = useCoffeeStore(useShallow(state => ({
+        coffees: state.coffees,
+        setCoffees: state.setCoffees,
+    })))
 
     useEffect(() => {
-        fetch('/data.json')
-            .then(response => response.json())
-            .then((data: Root) => setCoffees(data.coffees))
-            .catch(() => setCoffees([]))
-    }, [])
+        if (!coffees.length) {
+            fetch('/data.json')
+                .then(response => response.json())
+                .then((data: Root) => setCoffees(data.coffees))
+                .catch(() => setCoffees([]))
+        }
+    }, [coffees, setCoffees])
 
     return (
         <div>
