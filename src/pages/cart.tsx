@@ -8,6 +8,7 @@ import {
     CurrencyDollarIcon,
     MapPinIcon,
     MoneyIcon,
+    SmileySadIcon,
     TrashIcon,
 } from '@phosphor-icons/react'
 import { TextInput } from '../components/text-input'
@@ -16,6 +17,7 @@ import { QuantityInput } from '../components/quantity-input'
 import { useCartStore } from '../store/cart'
 import { useShallow } from 'zustand/shallow'
 import { useCoffeeStore } from '../store/coffee'
+import { Link, useNavigate } from 'react-router-dom'
 
 const newOrder = z.object({
     cep: z.number({ error: 'Informe o CEP' }),
@@ -52,6 +54,8 @@ export function Cart() {
     const { coffees } = useCoffeeStore(useShallow(state => ({
         coffees: state.coffees
     })))
+
+    const navigate = useNavigate()
 
     const coffeesInCart = items.map((item) => {
         const coffeeInfo = coffees.find((coffee) => coffee.id === item.id)
@@ -98,7 +102,7 @@ export function Cart() {
             return alert('É preciso ter pelo menos um item no carrinho')
         }
 
-        checkout(data)
+        checkout(data, navigate)
     }
 
     return (
@@ -229,6 +233,13 @@ export function Cart() {
                 <h2 className='text-titleXS font-baloo-2 font-bold text-base-subtitle'>Cafés selecionados</h2>
 
                 <div className='p-10 rounded-tr-[36px] rounded-bl-[36px] rounded-tl-md rounded-br-md bg-base-card w-full min-w-[448px]'>
+                    {!coffeesInCart.length && (
+                        <div className='flex flex-col mb-8' >
+                            <span className='flex items-center gap-2 justify-center'>Nenhum item adicionado ao carrinho <SmileySadIcon size={32} /></span>
+                            <Link className='text-sm text-purple text-center mt-2' to={'/'}>Voltar ao inicio</Link>
+                        </div>
+                    )}
+
                     {coffeesInCart.map((coffee) => (
                         <Fragment key={coffee.id}>
                             <div className='flex justify-between'>

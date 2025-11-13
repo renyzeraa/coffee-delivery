@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import type { OrderInfo } from "../pages/cart";
+// import { useNavigate } from "react-router-dom";
 
 export interface Item {
     id: string
@@ -14,7 +15,7 @@ export interface Order extends OrderInfo {
 interface CartStore {
     items: { id: string; quantity: number }[]
     addItem: (item: { id: string; quantity: number }) => void
-    checkout: (data: OrderInfo) => void
+    checkout: (data: OrderInfo, navigate: (path: string) => void) => void
     orders: Order[]
     removeItem: (itemId: string) => void
     incrementItemQuantity: (itemId: string) => void
@@ -32,14 +33,19 @@ export const useCartStore = create<CartStore>((set, get) => ({
         }))
     },
 
-    checkout: (order) => {
+    checkout: (order, navigate: (path: string) => void) => {
+        const newId = new Date().getTime()
         set({
             orders: [...get().orders, {
-                id: new Date().getTime(),
+                id: newId,
                 ...order,
                 items: get().items
             }]
         })
+        set({
+            items: []
+        })
+        navigate(`/order/${newId}/success`)
     },
 
     removeItem: (itemId) => {
@@ -53,10 +59,10 @@ export const useCartStore = create<CartStore>((set, get) => ({
             items: state.items.map(item => {
                 if (itemId === item.id) {
                     if (increment) {
-                        item.quantity -= 1
+                        item.quantity += 1
                     }
                     else {
-                        item.quantity += 1
+                        item.quantity -= 1
                     }
                 }
                 return item

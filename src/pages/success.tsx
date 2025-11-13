@@ -1,5 +1,5 @@
-import { CurrencyDollarIcon, MapPinIcon, TimerIcon } from '@phosphor-icons/react'
-import { useParams } from 'react-router-dom'
+import { CurrencyDollarIcon, MapPinIcon, SmileySadIcon, TimerIcon } from '@phosphor-icons/react'
+import { Link, useParams } from 'react-router-dom'
 import { useCartStore } from '../store/cart'
 import { useShallow } from 'zustand/shallow'
 
@@ -16,7 +16,12 @@ export function Success() {
     }
 
     if (!orderInfo?.id) {
-        return null
+        return (
+            <div className='flex flex-col gap-1 max-w-[1160px] mx-auto py-[80px] px-5 items-center'>
+                <h2 className='flex text-titleL font-baloo-2 font-bold text-red-600 gap-2'>Pedido não encontrado. <SmileySadIcon size={42} /></h2>
+                <span className='text-textL text-base-subtitle'>Retorne para o <Link className='underline text-purple' to={'/'}>início</Link> e tente novamente.</span>
+            </div>
+        )
     }
 
     return (
