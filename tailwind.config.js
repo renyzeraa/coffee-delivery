@@ -43,6 +43,9 @@ export default {
         tag: ['0.625rem', '130%'],
         'buttonG': ['0.875rem', '130%'],
         'buttonM': ['0.75rem', '130%'],
+      },
+      backgroundImage: {
+        'gradient-yellow-purple': 'linear-gradient(to bottom right, #DBAC2C, #8047F8)',
       }
     },
   },

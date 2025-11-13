@@ -1,12 +1,10 @@
-import { Outlet } from 'react-router-dom'
-
-import { Header } from './components/header.tsx'
+import { BrowserRouter } from "react-router-dom"
+import { Router } from "./router"
 
 export function App() {
   return (
-    <div>
-      <Header />
-      <Outlet />
-    </div>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   )
 }
