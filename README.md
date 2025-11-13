@@ -11,6 +11,14 @@
 
 [figma](https://www.figma.com/design/l7XPQJo5m91HIlE78XEvqA/Coffee-Delivery-%E2%80%A2-Desafio-React--Copy-?node-id=0-1&p=f&t=jJSfsnrytWCgW6D4-0)
 
+<img width="608" height="350" alt="Image" src="https://github.com/user-attachments/assets/1eea5692-a3d6-42f3-8446-8886054b0bca" />
+
+<img width="615" height="411" alt="Image" src="https://github.com/user-attachments/assets/5deeff0d-b1f8-404c-9710-51531753e060" />
+
+<img width="647" height="611" alt="Image" src="https://github.com/user-attachments/assets/2db0b801-9620-405c-8de3-8614f03288c3" />
+
+<a href="" target="_blanc">Deploy 🚀</a>
+
 ---
 
 Se você tiver alguma dúvida ou sugestão, entre em contato e sinta-se à vontade para contribuir !
