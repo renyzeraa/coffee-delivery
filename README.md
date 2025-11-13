@@ -1,4 +1,6 @@
-# Coffee Delivery
+# Coffee Delivery ☕🛵
+
+App onde você pode realizar pedidos de cafés, online, recebendo na sua casa.
 
 ## Stack
 
@@ -6,6 +8,8 @@
 -   Tailwindcss
 -   Zustand
 -   React Router Dom
+-   React Hook Form
+-   Phosphor React
 
 ## Preview
 
