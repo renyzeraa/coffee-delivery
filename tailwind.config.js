@@ -31,6 +31,20 @@ export default {
         'roboto': ['Roboto', 'sans-serif'],
       }
     },
+    fontSize: {
+      'titleXL': ['3rem', '130%'],
+      'titleL': ['2rem', '130%'],
+      'titleM': ['1.5rem', '130%'],
+      'titleS': ['1.25rem', '130%'],
+      'titleXS': ['1.125rem', '130%'],
+      'textL': ['1.25rem', '130%'],
+      'textM': ['1rem', '130%'],
+      'textS': ['0.875rem', '130%'],
+      'textXS': ['0.75rem', '130%'],
+      tag: ['0.625rem', '130%'],
+      'buttonG': ['0.875rem', '130%'],
+      'buttonM': ['0.75rem', '130%'],
+    }
   },
   plugins: [],
 }

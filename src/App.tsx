@@ -1,7 +1,12 @@
+import { Outlet } from 'react-router-dom'
+
+import { Header } from './components/header.tsx'
+
 export function App() {
   return (
-    <h1>
-      hello world
-    </h1>
+    <div>
+      <Header />
+      <Outlet />
+    </div>
   )
 }
