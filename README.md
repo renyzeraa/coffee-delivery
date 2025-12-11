@@ -21,7 +21,7 @@ App onde você pode realizar pedidos de cafés, online, recebendo na sua casa.
 
 <img width="647" height="611" alt="Image" src="https://github.com/user-attachments/assets/2db0b801-9620-405c-8de3-8614f03288c3" />
 
-<!-- <a href="https://coffee-delivery-seven-mauve.vercel.app/" target="_blanc">Deploy 🚀</a> -->
+<a href="https://coffee-delivery-nine.vercel.app/" target="_blanc">Deploy 🚀</a>
 
 ---
 
