@@ -25,7 +25,7 @@ export function Success() {
     }
 
     return (
-        <main className='flex max-w-[1160px] mx-auto py-[80px] px-5 items-end justify-between gap-10'>
+        <main className='flex max-w-[1160px] mx-auto py-[80px] px-5 items-end justify-between gap-10 max-lg:flex-col max-lg:items-center'>
             <div className='flex flex-col gap-10'>
                 <div className='flex flex-col gap-1'>
                     <h2 className='text-titleL font-baloo-2 font-bold text-yellow-dark'>Uhu! Pedido confirmado</h2>

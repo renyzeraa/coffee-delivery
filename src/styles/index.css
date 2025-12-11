@@ -34,3 +34,37 @@ button {
         'number fullAddress fullAddress'
         'neighborhood city state';
 }
+
+@media (max-width: 1024px) {
+    .grid-area-for-checkout {
+        grid-template-areas:
+            'cep cep .'
+            'street street .'
+            'number fullAddress fullAddress'
+            'neighborhood neighborhood neighborhood'
+            'city city state';
+    }
+}
+
+@media (max-width: 724px) {
+    .grid-area-for-checkout {
+        grid-template-areas:
+            'cep cep cep'
+            'street street street'
+            'number fullAddress fullAddress'
+            'neighborhood neighborhood neighborhood'
+            'city city state';
+    }
+}
+
+@media (max-width: 724px) {
+    .grid-area-for-checkout {
+        grid-template-areas:
+            'cep cep cep'
+            'street street street'
+            'number number number'
+            'fullAddress fullAddress fullAddress'
+            'neighborhood neighborhood neighborhood'
+            'city city state';
+    }
+}

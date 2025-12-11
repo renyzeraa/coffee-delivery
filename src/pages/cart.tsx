@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { type SubmitHandler, useForm } from 'react-hook-form'
+import { type SubmitHandler, useForm, useWatch } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {
@@ -77,13 +77,13 @@ export function Cart() {
     const {
         register,
         handleSubmit,
-        watch,
+        control,
         formState: { errors },
     } = useForm<OrderInfo>({
         resolver: zodResolver(newOrder),
     })
 
-    const selectedPaymentMethod = watch('paymentMethod')
+    const selectedPaymentMethod = useWatch({ control, name: 'paymentMethod' })
 
     function handleItemIncrement(itemId: string) {
         incrementItemQuantity(itemId)
@@ -106,12 +106,12 @@ export function Cart() {
     }
 
     return (
-        <main className='flex max-w-[1160px] py-10 px-5 mx-auto gap-8'>
+        <main className='flex max-w-[1160px] py-10 px-5 mx-auto gap-8 max-xl:flex-col'>
             <div className='flex flex-col gap-4'>
                 <h2 className='text-titleXS font-baloo-2 font-bold text-base-subtitle'>Complete seu pedido</h2>
 
                 <form className='flex flex-col gap-8' id="order" onSubmit={handleSubmit(handleOrderCheckout)}>
-                    <div className='p-10 rounded-md bg-base-card w-full min-w-[640px] flex flex-col gap-8'>
+                    <div className='p-10 rounded-md bg-base-card w-full md:min-w-[640px] flex flex-col gap-8'>
                         <div className='flex gap-2'>
                             <MapPinIcon className='text-yellow-dark' size={22} />
 
@@ -176,7 +176,7 @@ export function Cart() {
                         </div>
                     </div>
 
-                    <div className='p-10 rounded-md bg-base-card w-full min-w-[640px] flex flex-col gap-8'>
+                    <div className='p-10 rounded-md bg-base-card w-full md:min-w-[640px] flex flex-col gap-8'>
                         <div className='flex gap-2'>
                             <CurrencyDollarIcon className='text-purple' size={22} />
 
@@ -189,8 +189,8 @@ export function Cart() {
                             </div>
                         </div>
 
-                        <div className='flex flex-col gap-2'>
-                            <div className='flex items-center justify-between gap-3'>
+                        <div className='flex flex-col gap-2 '>
+                            <div className='flex items-center justify-between gap-3 max-sm:flex-col'>
                                 <Radio
                                     isSelected={selectedPaymentMethod === 'credit'}
                                     {...register('paymentMethod')}
@@ -232,7 +232,7 @@ export function Cart() {
             <div className='flex flex-col gap-4'>
                 <h2 className='text-titleXS font-baloo-2 font-bold text-base-subtitle'>Cafés selecionados</h2>
 
-                <div className='p-10 rounded-tr-[36px] rounded-bl-[36px] rounded-tl-md rounded-br-md bg-base-card w-full min-w-[448px]'>
+                <div className='p-10 rounded-tr-[36px] rounded-bl-[36px] rounded-tl-md rounded-br-md bg-base-card w-full md:min-w-[448px]'>
                     {!coffeesInCart.length && (
                         <div className='flex flex-col mb-8' >
                             <span className='flex items-center gap-2 justify-center'>Nenhum item adicionado ao carrinho <SmileySadIcon size={32} /></span>

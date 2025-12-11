@@ -24,18 +24,18 @@ export function Home() {
     return (
         <div>
             <section className='relative'>
-                <div className='max-w-[1160px] py-[92] px-5 mx-auto flex gap-[56px] items-start justify-between'>
+                <div className='max-w-[1160px] py-[92] px-5 mx-auto flex gap-[56px] items-start justify-between max-lg:flex-col max-lg:items-center max-lg:text-center'>
                     <div className='flex flex-col gap-[66px]'>
                         <div className='flex flex-col gap-4'>
-                            <h1 className='text-titleXL font-extrabold font-baloo-2 text-base-title'>Encontre o café perfeito para qualquer hora do dia</h1>
+                            <h1 className='text-titleXL font-extrabold font-baloo-2 text-base-title max-md:text-titleL'>Encontre o café perfeito para qualquer hora do dia</h1>
 
-                            <span className='text-textL text-base-subtitle'>
+                            <span className='text-textL max-lg:text-textM text-base-subtitle'>
                                 Com o Coffee Delivery você recebe seu café onde estiver, a
                                 qualquer hora
                             </span>
                         </div>
 
-                        <div className='grid grid-cols-2 gap-y-5'>
+                        <div className='grid grid-cols-2 gap-y-5 max-md:grid-cols-1 max-md:gap-x-0 max-md:gap-y-3'>
                             <div className='flex items-center gap-3'>
                                 <ShoppingCartIcon
                                     size={32}
@@ -83,7 +83,7 @@ export function Home() {
             <section className='max-w-[1160px] pt-8 px-5 pb-[150px] mx-auto flex flex-col gap-[54px]'>
                 <h2 className='text-titleL font-baloo-2 font-extrabold'>Nossos cafés</h2>
 
-                <div className='grid grid-cols-4 gap-y-10 gap-x-8'>
+                <div className='grid grid-cols-4 gap-y-10 gap-x-8 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1'>
                     {coffees.map((coffee) => (
                         <Card key={coffee.id} coffee={coffee} />
                     ))}
